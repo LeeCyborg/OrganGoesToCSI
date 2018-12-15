@@ -130,9 +130,11 @@ void allKeys() {
       strip.setBrightness(MAX_BRIGHTNESS);
       strip.show();
       
-      // Write the key pressed to Serial
-      Serial.write(i + ", on;");
-      keyWasDown[i] = true;
+      if (false == keyWasDown[i]) {
+        // Write the key pressed to Serial
+        Serial.write(i + ", on;");
+        keyWasDown[i] = true;
+      }
       
       // Set and arm the fade timer
       fadeTimer       = millis();
